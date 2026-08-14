@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo-mobile.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>kanban-web</title>
+  </head>
+  <body
+    class="bg-light-200 dark:bg-dark-200 text-light-400 dark:text-dark-400 transition-colors duration-300"
+  >
+    <div id="root"></div>
+    <script>
+      const theme = localStorage.getItem('theme');
+      if (theme === 'dark') document.documentElement.classList.add('dark');
+    </script>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

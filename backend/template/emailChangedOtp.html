@@ -1,0 +1,102 @@
+<!-- emails/email-change-otp.html -->
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .header {
+        background: #7f00ff;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        border-radius: 5px 5px 0 0;
+      }
+
+      .content {
+        background: #f9fafb;
+        padding: 30px;
+        border-radius: 0 0 5px 5px;
+      }
+
+      .otp-box {
+        display: block;
+        width: fit-content;
+        margin: 20px auto;
+        padding: 16px 32px;
+        background: #ffffff;
+        border: 2px dashed #7f00ff;
+        border-radius: 5px;
+        font-size: 32px;
+        font-weight: bold;
+        letter-spacing: 8px;
+        color: #7f00ff;
+        text-align: center;
+      }
+
+      .warning {
+        background: #fff3cd;
+        border-left: 4px solid #ffc107;
+        padding: 15px 20px;
+        margin-top: 20px;
+        border-radius: 4px;
+      }
+
+      .warning p {
+        margin: 0;
+        color: #856404;
+        font-size: 14px;
+      }
+
+      .footer {
+        margin-top: 30px;
+        text-align: center;
+        color: #6b7280;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="header">
+      <h1>Confirm Your Email Change</h1>
+    </div>
+
+    <div class="content">
+      <h2>Hi {{name}},</h2>
+
+      <p>
+        We received a request to change the email address on your Kanban App
+        account to <strong>{{newEmail}}</strong>.
+      </p>
+
+      <p>
+        Enter the code below to confirm this change. This code will expire in
+        <strong>10 minutes</strong>.
+      </p>
+
+      <div class="otp-box">{{otp}}</div>
+
+      <div class="warning">
+        <p>
+          ⚠️ If you didn't request this change, please ignore this email and
+          consider updating your password immediately, as this request
+          originated from someone with access to your account.
+        </p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>&copy; 2026 Kanban App. All rights reserved.</p>
+    </div>
+  </body>
+</html>

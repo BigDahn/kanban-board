@@ -1,0 +1,74 @@
+<!-- emails/welcome.html -->
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .header {
+        background: #7f00ff;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        border-radius: 5px 5px 0 0;
+      }
+
+      .content {
+        background: #f9fafb;
+        padding: 30px;
+        border-radius: 0 0 5px 5px;
+      }
+
+      .button {
+        display: inline-block;
+        padding: 12px 24px;
+        background: #7f00ff;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-top: 20px;
+      }
+
+      .footer {
+        margin-top: 30px;
+        text-align: center;
+        color: #6b7280;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="header">
+      <h1>Welcome to Kanban App!</h1>
+    </div>
+
+    <div class="content">
+      <h2>Hi {{name}},</h2>
+
+      <p>Welcome to Kanban App! We're excited to have you on board.</p>
+
+      <p>
+        Your account has been successfully created with the email:
+        <strong>{{email}}</strong>
+      </p>
+
+      <p>Get started by creating your first board and organizing your tasks.</p>
+
+      <a href="{{url}}" class="button">Go to Dashboard</a>
+    </div>
+
+    <div class="footer">
+      <p>&copy; 2026 Kanban App. All rights reserved.</p>
+    </div>
+  </body>
+</html>
