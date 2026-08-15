@@ -50,8 +50,8 @@ app.get(
     const health = {
       status: 'ok',
       mongo:
-        mongoose.connection.readyState === 1 ? 'connected' : 'disconnected',
-      redis: connection.status === 'ready' ? 'connected' : 'disconnected',
+        mongoose.connection?.readyState === 1 ? 'connected' : 'disconnected',
+      redis: connection?.status === 'ready' ? 'connected' : 'disconnected',
     };
 
     const isHealthy =
