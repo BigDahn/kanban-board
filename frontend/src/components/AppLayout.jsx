@@ -6,6 +6,8 @@ import { useKanban } from '../context/Kanban';
 import { useGetBoards } from '@/hooks/useBoards';
 import Loading from './ui/Loading';
 import BoardPage from '@/page/BoardPage';
+import CreateBoard from './Boards/CreateBoard';
+import CreateBoardDialog from './Boards/CreateBoard';
 
 function AppLayout() {
   const { isSidebarOpen, isDarkMode, dispatch } = useKanban();
@@ -33,6 +35,7 @@ function AppLayout() {
           <Outlet />
         </div>
       </div>
+      <CreateBoardDialog />
     </main>
   );
 }

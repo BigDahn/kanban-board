@@ -1,4 +1,5 @@
 import CreateBoard from './CreateBoard';
+import CreateBoardTrigger from './CreateBoardTrigger';
 
 function EmptyBoard() {
   return (
@@ -7,7 +8,7 @@ function EmptyBoard() {
         No Boards available, click the button below to create a new board
       </h3>
       <div className="py-4 px-4 rounded-full bg-primary-100">
-        <CreateBoard className="flex gap-2  items-center justify-center rounded leading-none  outline-none outline-offset-1 capitalize text-white text-[15px] font-bold hover:bg-mauve3 focus-visible:outline-2 focus-visible:outline-violet6 select-none cursor-pointer" />
+        <CreateBoardTrigger className="flex gap-2  items-center justify-center rounded leading-none  outline-none outline-offset-1 capitalize text-white text-[15px] font-bold hover:bg-mauve3 focus-visible:outline-2 focus-visible:outline-violet6 select-none cursor-pointer" />
       </div>
     </main>
   );

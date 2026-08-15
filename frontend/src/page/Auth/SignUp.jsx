@@ -38,6 +38,7 @@ function SignUp() {
           name="email"
           label="Email"
           type="text"
+          autoComplete="email"
           rules={{ required: 'Email is required' }}
           className="bg-white  dark:border dark:border-gray-300 text-black w-full h-[37px] outline-none px-2 rounded-[3px] text-[13px] font-medium dark:hover:border-primary-100"
         />

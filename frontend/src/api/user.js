@@ -8,7 +8,7 @@ export const userAPI = {
   },
   updatePassword: async (password) => {
     const { data } = await api.patch('/users/updatePassword', password);
-    console.log(data);
+
     return data;
   },
   updateEmail: async (updatedEmail) => {

@@ -20,9 +20,7 @@ const app = express();
 
 app.set('trust proxy', 1);
 
-if (process.env.NODE_ENV === 'development') {
-  app.use(morgan('dev'));
-}
+app.use(morgan(process.env.NODE_ENV === 'production' ? 'tiny' : 'dev'));
 
 app.use(helmet());
 app.use(cookieParser());

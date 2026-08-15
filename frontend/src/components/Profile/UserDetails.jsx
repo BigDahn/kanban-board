@@ -19,6 +19,7 @@ function UserDetails({ user }) {
     Object.entries(data).forEach(([key, value]) => {
       if (value) formData.append(key, value);
     });
+
     update(formData);
   };
 

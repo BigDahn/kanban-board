@@ -164,14 +164,16 @@ exports.resetPassword = CatchAsync(async (req, res, next) => {
   user.passwordResetTokenExpires = undefined;
 
   await user.save();
+
   const options = {
     date: new Date().toDateString(),
     time: new Date().toLocaleTimeString('en-US'),
   };
+  const url = `${process.env.FRONTEND_URL}/`;
 
   await Promise.all([
     Notification.create({
-      type: 'password_reset',
+      type: 'password_updated',
       descriptions: notificationMessages.password_updated({
         userName: user.name,
       }),
@@ -181,6 +183,7 @@ exports.resetPassword = CatchAsync(async (req, res, next) => {
       'reset-password',
       {
         user,
+        url,
         options,
       },
       {

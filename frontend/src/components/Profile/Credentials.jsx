@@ -43,6 +43,7 @@ function Credentials() {
         <Form onSubmit={onSubmit} className="flex flex-col gap-[1em] ">
           <FormInput
             name="old_email"
+            autoComplete="username"
             label="Current Email"
             value={email}
             className="w-full lg:w-[800px] h-[40px] rounded-sm border border-primary-100  bg-transparent disabled:cursor-not-allowed  outline-none px-2 text-[16px] font-normal"
@@ -50,6 +51,7 @@ function Credentials() {
           />
           <FormInput
             name="email"
+            autoComplete="username"
             label="New Email"
             className="w-full lg:w-[800px] h-[40px] rounded-sm border border-primary-100 text-white dark:text-black  bg-transparent disabled:cursor-not-allowed  outline-none px-2 text-[16px] font-normal"
             rules={{ required: 'Email is required' }}

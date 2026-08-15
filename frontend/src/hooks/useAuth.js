@@ -22,7 +22,6 @@ export function useLogin() {
       navigate('/');
     },
     onError: (error) => {
-      console.log(error);
       console.error('Login failed:', error.response?.data?.message);
       toast.error(error.response?.data?.message || 'Something went very wrong');
     },

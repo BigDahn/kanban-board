@@ -97,7 +97,7 @@ exports.updateMe = CatchAsync(async (req, res, next) => {
       const result = await cloudinaryUpload(req.file.buffer);
 
       filteredBody.photo = {
-        url: result.url,
+        url: result.secure_url,
         publicId: result.public_id,
       };
     } catch (error) {

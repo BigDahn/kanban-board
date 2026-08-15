@@ -25,8 +25,8 @@ const worker = new Worker(
         return updatePassword(user, options);
       }
       case 'reset-password': {
-        const { user, options } = job.data;
-        return resetPassword(user, options);
+        const { user, url, options } = job.data;
+        return resetPassword(user, url, options);
       }
       case 'update-email': {
         const { user, url, options } = job.data;
