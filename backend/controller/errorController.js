@@ -59,10 +59,7 @@ module.exports = (err, req, res, next) => {
   if (error.name === 'JsonWebTokenError') error = handleJwtError(error);
   if (error.name === 'TokenExpiredError') error = handleJwtExpiredError(error);
   if (process.env.NODE_ENV === 'development') {
-    sendDevError(err, res);
+    return sendDevError(err, res);
   }
-  sendProdError(error, res);
+  return sendProdError(error, res);
 };
-
-//  status: "error",
-// message: "Something went very wrong",
