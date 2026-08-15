@@ -4,6 +4,8 @@ dotenv.config({ path: './config.env' });
 const mongoose = require('mongoose');
 const app = require('./app');
 
+require('./worker/emailWorker');
+
 process.on('uncaughtException', (err) => {
   console.log('UNCAUGHT EXCEPTION.... SHUTTING DOWN!!!!');
   console.log(err.stack);
