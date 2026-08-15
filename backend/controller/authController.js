@@ -325,9 +325,7 @@ exports.deleteUser = CatchAsync(async (req, res, next) => {
   if (!user) return next(new ErrorClass('User not found', 404));
 
   if (!(await user.comparePassword(password, user.password)))
-    return next(
-      new ErrorClass('Incorrect password. Account deletion cancelled', 401),
-    );
+    return next(new ErrorClass('Incorrect password. Process cancelled', 401));
 
   if (token) {
     if (process.env.NODE_ENV === 'production') {

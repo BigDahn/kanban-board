@@ -89,3 +89,24 @@ export function useForgotPassword() {
     },
   });
 }
+
+export function useDeleteUser({ deleteCall }) {
+  const navigate = useNavigate();
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: authAPI.deleteUser,
+    onSuccess: (data) => {
+      toast.success(data?.message);
+      deleteCall?.();
+      queryClient.clear();
+      navigate('/login');
+    },
+    onError: (error) => {
+      console.error(
+        'An error occurred while trying to delete your account',
+        error.response?.data?.message,
+      );
+      toast.error(error.response?.data?.message);
+    },
+  });
+}

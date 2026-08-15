@@ -10,7 +10,6 @@ function FormInput({
   className,
   disabled,
   autoComplete,
-
   value,
 }) {
   const {

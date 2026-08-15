@@ -2,8 +2,8 @@
 
 A full-stack Kanban board application with authentication, board/task management, background email processing, and caching — built as a way to go deep on backend architecture, containerization, and performance testing.
 
-**Live demo:** _add your Vercel link here_
-**Backend API:** _add your Render link here_
+**Live demo:** https://kanban-board-bigdahn.vercel.app/
+**Backend API:** https://kanban-backend-obpt.onrender.com
 
 ---
 

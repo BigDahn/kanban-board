@@ -33,4 +33,11 @@ export const authAPI = {
 
     return data.user;
   },
+  deleteUser: async (credentials) => {
+    const { data } = await api.delete('/users/deleteMe', {
+      data: credentials,
+    });
+
+    return data;
+  },
 };
