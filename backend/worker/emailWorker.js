@@ -1,3 +1,6 @@
+const dotenv = require('dotenv');
+dotenv.config({ path: './config.env' });
+
 const { Worker } = require('bullmq');
 const connection = require('../config/redis');
 const { sendWelcome } = require('../services/welcome-email');
