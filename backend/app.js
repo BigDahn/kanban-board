@@ -3,6 +3,9 @@ const morgan = require('morgan');
 const cors = require('cors');
 const { xss } = require('express-xss-sanitizer');
 const mongoSanitize = require('@exortek/express-mongo-sanitize');
+const mongoose = require('mongoose');
+const connection = require('./config/redis');
+const CatchAsync = require('./utils/CatchAsync');
 const cookieParser = require('cookie-parser');
 const helmet = require('helmet');
 const rateLimiter = require('express-rate-limit');
@@ -28,7 +31,7 @@ app.use(express.json({ limit: '10kb' }));
 
 app.use(
   cors({
-    origin: 'http://localhost:5173',
+    origin: process.env.FRONTEND_URL || 'http://localhost:5173',
     credentials: true,
   }),
 );
@@ -41,18 +44,22 @@ const limiter = rateLimiter({
   message: 'Too many requests from this IP, please try again later.',
 });
 
-app.get('/health', async (req, res) => {
-  const health = {
-    status: 'ok',
-    mongo: mongoose.connection.readyState === 1 ? 'connected' : 'disconnected',
-    redis: connection.status === 'ready' ? 'connected' : 'disconnected',
-  };
+app.get(
+  '/health',
+  CatchAsync(async (req, res) => {
+    const health = {
+      status: 'ok',
+      mongo:
+        mongoose.connection.readyState === 1 ? 'connected' : 'disconnected',
+      redis: connection.status === 'ready' ? 'connected' : 'disconnected',
+    };
 
-  const isHealthy =
-    health.mongo === 'connected' && health.redis === 'connected';
+    const isHealthy =
+      health.mongo === 'connected' && health.redis === 'connected';
 
-  res.status(isHealthy ? 200 : 503).json(health);
-});
+    res.status(isHealthy ? 200 : 503).json(health);
+  }),
+);
 
 app.use('/api', limiter);
 
