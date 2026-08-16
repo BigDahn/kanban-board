@@ -9,12 +9,14 @@ import {
 function NotificationHeaders({ data }) {
   const { mutate: markAsRead } = useMarkAllAsRead();
   const { mutate: deleteAll } = useDeleteAllNotifications();
-  const unreadCount = data?.filter((notification) => !notification.read).length;
+  const unreadCount = data?.filter(
+    (notification) => notification.status === 'Unread',
+  ).length;
 
   return (
     <div className="flex justify-between items-center">
       <h1 className="text-[14px] font-semibold  text-white dark:text-black text-center">
-        {unreadCount} unread{' '}
+        {unreadCount >= 1 ? unreadCount : 'No'} unread{' '}
         {unreadCount === 1 ? 'notification' : 'notifications'}
       </h1>
       <div className="flex gap-3 items-center">
